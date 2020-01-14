@@ -23,12 +23,14 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 
 //Forwarding request from App to CSB API and returning result
 
+//FILTERING: filter=((substringof(%27NL%27,RegioS)))
+
 router.post("/data", (req, res) => {
   console.log("got a request on /data");
   console.log("this is the request body", req.body);
   const selection = req.body.selection;
   const url =
-    "https://opendata.cbs.nl/ODataApi/odata/37852/UntypedDataSet?$select=" +
+    "https://opendata.cbs.nl/ODataApi/odata/37852eng/UntypedDataSet?$select=" +
     selection;
   console.log("the Url for CBS request", url);
   request
